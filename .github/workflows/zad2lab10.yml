@@ -44,22 +44,14 @@ jobs:
     needs: dockerCI
     steps:
       - name: Checkout Config Repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           repository: MrSzcz/Config_Repo
           path: Config_Repo
-
-      - name: Configure Git
         run: |
           git config user.email "kacper.szczepaniuk@pollub.edu.pl"
           git config user.name "mrszcz"
-
-      - name: Update Manifests
-        run: |
           sed -i "s/webapp:.*/webapp:${{ inputs.tag }}/g" deployment.yaml
-
-      - name: Commit and Push Changes
-        run: |
           git add .
           git commit -m "Update image reference"
           git push
