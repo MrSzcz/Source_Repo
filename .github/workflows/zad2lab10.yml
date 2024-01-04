@@ -43,14 +43,14 @@ jobs:
     runs-on: ubuntu-latest
     needs: dockerCI
     steps:
+      - name: Git Safe Dirrectory
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
       - name: Checkout Config Repository
         uses: actions/checkout@v4
         with:
           repository: MrSzcz/Config_Repo
           path: Config_Repo
-
-      - name: Git Safe Dirrectory
-        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
 
       - name: Configure Git
         run: |
