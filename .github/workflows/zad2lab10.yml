@@ -49,8 +49,8 @@ jobs:
           repository: MrSzcz/Config_Repo
           path: Config_Repo
 
-     - name: Git Safe Dirrectory
-       run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+      - name: Git Safe Dirrectory
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
 
       - name: Configure Git
         run: |
