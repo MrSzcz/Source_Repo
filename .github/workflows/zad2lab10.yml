@@ -47,7 +47,11 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: MrSzcz/Config_Repo
-          path: Config_Repo
+
+      - name: Configure Git
+        run: |
+          git config user.email "kacper.szczepaniuk@pollub.edu.pl"
+          git config user.name "mrszcz"
 
       - name: Update Manifests
         run: |
