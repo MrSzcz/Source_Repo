@@ -48,10 +48,13 @@ jobs:
         with:
           repository: MrSzcz/Config_Repo
           path: Config_Repo
+
+      - name: Update Manifests
         run: |
-          git config user.email "kacper.szczepaniuk@pollub.edu.pl"
-          git config user.name "mrszcz"
           sed -i "s/webapp:.*/webapp:${{ inputs.tag }}/g" deployment.yaml
+
+      - name: Commit and Push Changes
+        run: |
           git add .
           git commit -m "Update image reference"
           git push
